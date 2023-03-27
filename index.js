@@ -6,6 +6,7 @@ require("chromedriver");
 const log = console.log;
 
 log("start");
+log(chromium.path);
 async function start() {
   log("function", "start");
   let options = new chrome.Options();
