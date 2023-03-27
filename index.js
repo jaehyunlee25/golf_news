@@ -4,9 +4,19 @@ const chrome = require("selenium-webdriver/chrome");
 const chromium = require("chromium");
 require("chromedriver");
 const log = console.log;
+const { execFile } = require("child_process");
 
 log("start");
 log("chrome path", chromium.path);
+
+execFile(chromium.path, ["https://google.com"], (err) => {
+  log(err);
+  log("Hello Google!");
+});
+
+/* const t = setInterval(() => {
+  start();
+}, 1000); */
 async function start() {
   log("function", "start");
   let options = new chrome.Options();
@@ -42,7 +52,3 @@ async function takeScreenshot(driver, name) {
     console.log("Screenshot is saved");
   });
 }
-
-const t = setInterval(() => {
-  start();
-}, 1000);
