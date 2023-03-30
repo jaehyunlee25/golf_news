@@ -39,7 +39,9 @@ async function main(script) {
     console.log(msg.text());
   });
   await page.goto("https://www.yna.co.kr/sports/golf");
-  await page.evaluate(eval(script));
+  await page.evaluate(() => {
+    console.log(document);
+  });
   /* const content = await page.content();
   console.log(content); */
   await browser.close();
