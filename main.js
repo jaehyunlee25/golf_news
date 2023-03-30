@@ -1,31 +1,9 @@
-const { app, BrowserWindow } = require("electron");
+const puppeteer = require("puppeteer");
 
-console.log(BrowserWindow);
-console.log(app);
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-  });
-
-  win.loadURL("https://google.com");
+async function main() {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto("https://google.com");
 }
 
-/* app.whenReady().then(() => {
-  createWindow();
-
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });
-});
-
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-}); */
+main();
