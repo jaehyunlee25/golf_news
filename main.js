@@ -59,6 +59,9 @@ async function main(urls, scripts, round) {
       return;
     }
     script = script.dp({ round });
+    console.log(script);
+    return;
+
     const page = await browser.newPage();
     page.on("dialog", async (dialog) => {
       //get alert message
