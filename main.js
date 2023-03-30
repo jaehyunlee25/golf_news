@@ -20,13 +20,13 @@ setInterval(() => {
         links: [
           "yonhapnews",
           "golfhankook",
-          "golfforwomen",
+          /* "golfforwomen",
           "golfdigest",
           "wolgangolf",
           "golfeconomy",
           "hankookleisure",
           "golfsanup",
-          "golfjournal",
+          "golfjournal", */
         ],
       },
     },
@@ -40,9 +40,11 @@ setInterval(() => {
 }, 1000 * 60);
 
 async function main(links, scripts, round) {
+  console.log("main");
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
+  exec();
   async function exec() {
     let link = links.shift();
     console.log(link);
