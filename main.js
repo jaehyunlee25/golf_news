@@ -11,6 +11,9 @@ String.prototype.dp = function (param) {
   });
   return self;
 };
+String.prototype.add = function add(str) {
+  return [this, str].join("");
+};
 
 call();
 setInterval(call, 1000 * 60);
