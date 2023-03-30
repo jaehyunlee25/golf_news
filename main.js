@@ -12,7 +12,10 @@ String.prototype.dp = function (param) {
   return self;
 };
 
-setInterval(() => {
+call();
+setInterval(call, 1000 * 60);
+
+function call() {
   request.post(
     "https://dev.mnemosyne.co.kr/api/crawler/getGolfLinkScript",
     {
@@ -37,8 +40,7 @@ setInterval(() => {
       main(links, scripts, round);
     }
   );
-}, 1000 * 60);
-
+}
 async function main(links, scripts, round) {
   console.log("main");
   const browser = await puppeteer.launch({
