@@ -20,6 +20,7 @@ request.post(
   },
   (err, resp, body) => {
     const [script] = body.scripts;
+    console.log(script);
     main(script);
   }
 );
