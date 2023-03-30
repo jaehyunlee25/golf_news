@@ -57,9 +57,6 @@ async function main(urls, scripts) {
       await browser.close();
       return;
     }
-    console.log(script);
-    return;
-
     const page = await browser.newPage();
     page.on("dialog", async (dialog) => {
       //get alert message
