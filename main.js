@@ -19,11 +19,12 @@ request.post(
     },
   },
   (err, resp, body) => {
-    console.log("result/searchResult.js", body.scripts[0], "utf-8");
+    const [script] = body.scripts;
+    main(script);
   }
 );
 
-async function main() {
+async function main(script) {
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
@@ -38,12 +39,8 @@ async function main() {
     console.log(msg.text());
   });
   await page.goto("https://www.yna.co.kr/sports/golf");
-  await page.evaluate(() => {
-    console.log("evaluate: 11");
-  });
+  await page.evaluate(eval(script));
   /* const content = await page.content();
   console.log(content); */
   await browser.close();
 }
-
-//main();
