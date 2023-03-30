@@ -43,5 +43,5 @@ async function main(script) {
   await page.evaluate(script);
   /* const content = await page.content();
   console.log(content); */
-  await browser.close();
+  // await browser.close();
 }
