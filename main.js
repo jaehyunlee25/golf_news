@@ -12,7 +12,7 @@ function createWindow() {
   win.loadURL("https://google.com");
 }
 
-app.whenReady().then(() => {
+/* app.whenReady().then(() => {
   createWindow();
 
   app.on("activate", () => {
@@ -26,4 +26,4 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
   }
-});
+}); */
