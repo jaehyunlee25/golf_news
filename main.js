@@ -25,8 +25,8 @@ function call() {
       json: {
         links: [
           "yonhapnews",
-          "golfhankook",
-          /* "golfforwomen",
+          /* "golfhankook",
+          "golfforwomen",
           "golfdigest",
           "wolgangolf",
           "golfeconomy",
