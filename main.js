@@ -43,6 +43,6 @@ async function main(script) {
   await page.evaluate(script);
   /* const content = await page.content();
   console.log(content); */
-  await page.waitFor(3000);
+  await page.waitForTimeout(3000);
   await browser.close();
 }
