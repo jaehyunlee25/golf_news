@@ -6,6 +6,8 @@ async function main() {
   });
   const page = await browser.newPage();
   await page.goto("https://google.com");
+  const content = await page.content();
+  console.log(content);
 }
 
 main();
