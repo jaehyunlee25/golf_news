@@ -40,7 +40,7 @@ async function main(script) {
   });
   await page.goto("https://www.yna.co.kr/sports/golf");
   await page.evaluate(() => {
-    console.log(window);
+    console.log(document.getElementById);
   });
   /* const content = await page.content();
   console.log(content); */
