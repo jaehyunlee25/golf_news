@@ -37,24 +37,24 @@ function call() {
       },
     },
     (err, resp, body) => {
-      const { links, scripts } = body;
+      const { urls, scripts } = body;
       const round = new Date().getTime();
 
-      main(links, scripts, round);
+      main(urls, scripts, round);
     }
   );
 }
-async function main(links, scripts, round) {
+async function main(urls, scripts, round) {
   console.log("main");
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   exec();
   async function exec() {
-    let link = links.shift();
-    console.log(link);
+    let url = urls.shift();
+    console.log(url);
     let script = scripts.shift();
-    if (!link) {
+    if (!url) {
       await browser.close();
       return;
     }
@@ -69,7 +69,7 @@ async function main(links, scripts, round) {
     page.on("console", (msg) => {
       console.log(msg.text());
     });
-    await page.goto(link);
+    await page.goto(url);
     await page.evaluate(script);
     /* const content = await page.content();
     console.log(content); */
