@@ -24,8 +24,8 @@ function call() {
     {
       json: {
         links: [
-          "yonhapnews",
-          "golfhankook",
+          /* "yonhapnews",
+          "golfhankook", */
           "golfforwomen",
           "golfdigest",
           "wolgangolf",
@@ -68,6 +68,7 @@ async function main(urls, scripts) {
       console.log(msg.text());
     });
     await page.goto(url);
+    await page.waitForTimeout(3000);
     await page.evaluate(script);
     /* const content = await page.content();
     console.log(content); */
