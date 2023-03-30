@@ -7,8 +7,8 @@ async function main() {
   const page = await browser.newPage();
   await page.goto("https://www.yna.co.kr/sports/golf");
   console.log(page);
-  const content = await page.content();
-  console.log(content);
+  /* const content = await page.content();
+  console.log(content); */
 }
 
 main();
