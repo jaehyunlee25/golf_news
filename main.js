@@ -1,4 +1,27 @@
 const puppeteer = require("puppeteer");
+const request = require("request");
+
+request.post(
+  "https://dev.mnemosyne.co.kr/api/crawler/getGolfLinkScript",
+  {
+    json: {
+      links: [
+        "yonhapnews",
+        /* "golfhankook",
+        "golfforwomen",
+        "golfdigest",
+        "wolgangolf",
+        "golfeconomy",
+        "hankookleisure",
+        "golfsanup",
+        "golfjournal", */
+      ],
+    },
+  },
+  (err, resp, body) => {
+    console.log("result/searchResult.js", body.scripts[0], "utf-8");
+  }
+);
 
 async function main() {
   const browser = await puppeteer.launch({
@@ -23,4 +46,4 @@ async function main() {
   await browser.close();
 }
 
-main();
+//main();
