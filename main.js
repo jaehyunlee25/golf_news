@@ -25,26 +25,25 @@ function call() {
       json: {
         links: [
           "yonhapnews",
-          /* "golfhankook",
+          "golfhankook",
           "golfforwomen",
           "golfdigest",
           "wolgangolf",
           "golfeconomy",
           "hankookleisure",
           "golfsanup",
-          "golfjournal", */
+          "golfjournal",
         ],
+        round: new Date().getTime(),
       },
     },
     (err, resp, body) => {
       const { urls, scripts } = body;
-      const round = new Date().getTime();
-
-      main(urls, scripts, round);
+      main(urls, scripts);
     }
   );
 }
-async function main(urls, scripts, round) {
+async function main(urls, scripts) {
   console.log("main");
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -58,7 +57,6 @@ async function main(urls, scripts, round) {
       await browser.close();
       return;
     }
-    script = script.dp({ round });
     console.log(script);
     return;
 
