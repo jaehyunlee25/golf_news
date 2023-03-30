@@ -16,7 +16,7 @@ String.prototype.add = function add(str) {
 };
 
 call();
-setInterval(call, 1000 * 60);
+setInterval(call, 1000 * 60 * 5);
 
 function call() {
   request.post(
