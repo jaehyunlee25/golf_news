@@ -15,11 +15,12 @@ async function main() {
     console.log(msg.text());
   });
   await page.goto("https://www.yna.co.kr/sports/golf");
-  page.evaluate(() => {
+  await page.evaluate(() => {
     console.log("evaluate: 11");
   });
   /* const content = await page.content();
   console.log(content); */
+  await browser.close();
 }
 
 main();
