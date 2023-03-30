@@ -12,7 +12,7 @@ async function main() {
     await dialog.accept(); //message(), type(),  dismiss(), type()
   });
   page.on("console", (msg) => {
-    console.log(msg);
+    console.log(msg.text);
   });
   await page.goto("https://www.yna.co.kr/sports/golf");
   console.log(page);
