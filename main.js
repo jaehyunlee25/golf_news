@@ -58,6 +58,7 @@ async function main(urls, scripts) {
       return;
     }
     const page = await browser.newPage();
+    await page.setDefaultNavigationTimeout(0);
     page.on("dialog", async (dialog) => {
       //get alert message
       console.log(dialog.message());
